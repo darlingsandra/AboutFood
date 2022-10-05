@@ -10,6 +10,12 @@ import UIKit
 final class ArticleCollectionViewCell: UICollectionViewCell {
       
     // MARK: - Properties
+    override var isSelected: Bool {
+        didSet {
+            setBorder()
+        }
+    }
+    
     private var article: Article?
     private let spasing: CGFloat = 10.0
     private let imageView = UIImageView()
@@ -43,6 +49,8 @@ extension ArticleCollectionViewCell: ConfiguringCellProtocol {
 private extension ArticleCollectionViewCell {
     
     func setupView() {
+        setBorder()
+    
         layer.cornerRadius = 20
         clipsToBounds = true
         
@@ -79,6 +87,11 @@ private extension ArticleCollectionViewCell {
             blurEffectView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             blurEffectView.rightAnchor.constraint(equalTo: self.rightAnchor),
         ])
+    }
+    
+    func setBorder() {
+        layer.borderWidth = isSelected ? 2 : 0
+        layer.borderColor = isSelected ? UIColor.lightPurple.cgColor : UIColor.clear.cgColor
     }
     
     func getUrlImage(with article: Article) -> String {

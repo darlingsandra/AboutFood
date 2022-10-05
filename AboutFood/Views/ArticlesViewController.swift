@@ -14,8 +14,20 @@ final class ArticlesViewController: UIViewController {
     
     var dataSource: UICollectionViewDiffableDataSource<ArticleSection, Article>!
     var collectionView: UICollectionView!
-        
+      
+    private let coutSelectedArticle = 6
     private lazy var activityIndicator = UIActivityIndicatorView()
+    private lazy var errorView: UIStackView  = {
+        let errorLabel =  UILabel()
+        errorLabel.font = UIFont.systemFont(ofSize: 18)
+        errorLabel.textColor = .gray
+        errorLabel.text = "Что то пошло не так..."
+        errorLabel.textAlignment = .center
+        let errorView = UIStackView(arrangedSubviews: [errorLabel])
+        errorView.translatesAutoresizingMaskIntoConstraints = false
+        errorView.isHidden = true
+        return errorView
+    }()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -29,7 +41,17 @@ final class ArticlesViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDelegate
-extension ArticlesViewController: UICollectionViewDelegate { }
+extension ArticlesViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if let selectedItems = collectionView.indexPathsForSelectedItems {
+            if selectedItems.contains(indexPath) {
+                collectionView.deselectItem(at: indexPath, animated: true)
+                return false
+            } else if selectedItems.count >= coutSelectedArticle { return false }
+        }
+        return true
+    }
+}
 
 // MARK: - CollectionView
 extension ArticlesViewController {
@@ -37,6 +59,8 @@ extension ArticlesViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createViewLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .white
+        collectionView.allowsMultipleSelection = true
+        collectionView.delegate = self
         
         view.addSubview(collectionView)
         
@@ -143,8 +167,17 @@ private extension ArticlesViewController {
     func setupView() {
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
-        
+          
         setupCollectionView()
+        
+        view.addSubview(errorView)
+        NSLayoutConstraint.activate([
+            errorView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            errorView.topAnchor.constraint(equalTo: view.topAnchor),
+            errorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            errorView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            
+        ])
     }
     
     func showSpinner() {
@@ -163,8 +196,10 @@ private extension ArticlesViewController {
             case .success(let sectionList):
                 self.articleSections = sectionList.sections
                 self.hideSpinner()
+                self.errorView.isHidden = true
             case .failure(_):
                 self.hideSpinner()
+                self.errorView.isHidden = false
             }
         }
     }
