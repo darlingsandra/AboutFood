@@ -7,20 +7,18 @@
 
 import Foundation
 
-struct SectionList: Decodable {
-    let sections: [Section]
-}
-
-struct Section: Decodable {
-    let id: String
-    let header: String
-    let items: [Article]
-}
-
-struct Article: Decodable {
+struct Article: Decodable, Hashable {
     let id: String
     let title: String
     let image: ImageArticle
+    
+    func hash(into hasher: inout Hasher) {
+      hasher.combine(id)
+    }
+    
+    static func == (lhs: Article, rhs: Article) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 struct ImageArticle: Decodable {

@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let viewController = ArticlesViewController(collectionViewLayout: UICollectionViewLayout())
+        let viewController = ArticlesViewController()
         let navigationController = UINavigationController()
         navigationController.viewControllers = [viewController]
         window = UIWindow(frame: UIScreen.main.bounds)

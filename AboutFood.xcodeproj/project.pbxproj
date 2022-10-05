@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F582E4A228EC72C30045912A /* ArticleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F582E4A128EC72C30045912A /* ArticleSection.swift */; };
+		F582E4A528ED5D1E0045912A /* ConfiguringCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F582E4A428ED5D1E0045912A /* ConfiguringCellProtocol.swift */; };
+		F582E4A728ED624A0045912A /* ConfiguringHeaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F582E4A628ED624A0045912A /* ConfiguringHeaderProtocol.swift */; };
+		F582E4AA28ED75710045912A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F582E4A928ED75710045912A /* UIColor+Extension.swift */; };
 		F5A23E0628EACD3A006F5D2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A23E0528EACD3A006F5D2B /* AppDelegate.swift */; };
 		F5A23E0A28EACD3A006F5D2B /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A23E0928EACD3A006F5D2B /* ArticlesViewController.swift */; };
 		F5A23E0F28EACD3E006F5D2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A23E0E28EACD3E006F5D2B /* Assets.xcassets */; };
@@ -14,9 +18,15 @@
 		F5A23E1F28EAD6E0006F5D2B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A23E1E28EAD6E0006F5D2B /* Article.swift */; };
 		F5A23E2128EADA3F006F5D2B /* jsonviewer.json in Resources */ = {isa = PBXBuildFile; fileRef = F5A23E2028EADA3F006F5D2B /* jsonviewer.json */; };
 		F5A23E2328EADDFA006F5D2B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A23E2228EADDFA006F5D2B /* DataManager.swift */; };
+		F5A23E2528EB4066006F5D2B /* ArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A23E2428EB4066006F5D2B /* ArticleCollectionViewCell.swift */; };
+		F5B1436528EC17B400874C44 /* ArticleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B1436428EC17B400874C44 /* ArticleHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F582E4A128EC72C30045912A /* ArticleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleSection.swift; sourceTree = "<group>"; };
+		F582E4A428ED5D1E0045912A /* ConfiguringCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguringCellProtocol.swift; sourceTree = "<group>"; };
+		F582E4A628ED624A0045912A /* ConfiguringHeaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguringHeaderProtocol.swift; sourceTree = "<group>"; };
+		F582E4A928ED75710045912A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		F5A23E0228EACD3A006F5D2B /* AboutFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AboutFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A23E0528EACD3A006F5D2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5A23E0928EACD3A006F5D2B /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
@@ -26,6 +36,8 @@
 		F5A23E1E28EAD6E0006F5D2B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		F5A23E2028EADA3F006F5D2B /* jsonviewer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jsonviewer.json; sourceTree = "<group>"; };
 		F5A23E2228EADDFA006F5D2B /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		F5A23E2428EB4066006F5D2B /* ArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCollectionViewCell.swift; sourceTree = "<group>"; };
+		F5B1436428EC17B400874C44 /* ArticleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +51,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F582E4A328ED5CB30045912A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F582E4A428ED5D1E0045912A /* ConfiguringCellProtocol.swift */,
+				F582E4A628ED624A0045912A /* ConfiguringHeaderProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F582E4A828ED75570045912A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F582E4A928ED75710045912A /* UIColor+Extension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F5A23DF928EACD39006F5D2B = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +91,8 @@
 				F5A23E1B28EAD187006F5D2B /* Resources */,
 				F5A23E1C28EAD1B6006F5D2B /* Models */,
 				F5A23E1D28EAD1C8006F5D2B /* Services */,
+				F582E4A828ED75570045912A /* Helpers */,
+				F582E4A328ED5CB30045912A /* Protocols */,
 				F5A23E1928EACD95006F5D2B /* Views */,
 			);
 			path = AboutFood;
@@ -71,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				F5A23E0928EACD3A006F5D2B /* ArticlesViewController.swift */,
+				F5A23E2428EB4066006F5D2B /* ArticleCollectionViewCell.swift */,
+				F5B1436428EC17B400874C44 /* ArticleHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				F5A23E1E28EAD6E0006F5D2B /* Article.swift */,
+				F582E4A128EC72C30045912A /* ArticleSection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,10 +215,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F582E4A528ED5D1E0045912A /* ConfiguringCellProtocol.swift in Sources */,
+				F582E4A228EC72C30045912A /* ArticleSection.swift in Sources */,
 				F5A23E0A28EACD3A006F5D2B /* ArticlesViewController.swift in Sources */,
 				F5A23E2328EADDFA006F5D2B /* DataManager.swift in Sources */,
+				F5B1436528EC17B400874C44 /* ArticleHeaderView.swift in Sources */,
+				F5A23E2528EB4066006F5D2B /* ArticleCollectionViewCell.swift in Sources */,
 				F5A23E0628EACD3A006F5D2B /* AppDelegate.swift in Sources */,
+				F582E4A728ED624A0045912A /* ConfiguringHeaderProtocol.swift in Sources */,
 				F5A23E1F28EAD6E0006F5D2B /* Article.swift in Sources */,
+				F582E4AA28ED75710045912A /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
