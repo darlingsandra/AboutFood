@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class ArticleCollectionViewCell: UICollectionViewCell {
       
@@ -41,7 +42,12 @@ extension ArticleCollectionViewCell: ConfiguringCellProtocol {
         self.article = article
 
         titleLabel.text = article.title
-        loadImage(url: getUrlImage(with: article))
+        
+        let imageUrl = getUrlImage(with: article)
+        imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        imageView.sd_setImage(with: URL(string: imageUrl)) { image, error, _, _ in
+            self.imageView.image = error == nil ? image : UIImage(named: "Default")
+        }
     }
 }
 
@@ -103,23 +109,7 @@ private extension ArticleCollectionViewCell {
         default: return article.image.one
         }
     }
-    
-    func loadImage(url: String) {
-        DispatchQueue.global().async {
-            DataManager.shared.fetchImage(url: url) { result in
-                switch result {
-                case .success(let data):
-                    DispatchQueue.main.async {
-                        self.imageView.image = UIImage(data: data)
-                    }
-                case .failure(_):
-                    DispatchQueue.main.async {
-                        self.imageView.image = UIImage(named: "Default")
-                    }
-                }
-            }
-        }
-    }
+
 }
 
 
